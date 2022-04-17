@@ -11,19 +11,18 @@ public class Solution {
 	// 1000~9999
 	// 10000
 	// 자릿수의 합은 1~36 사이의 범위
-	// 
+	
 
 	public boolean solution(int x) {
 		boolean answer = true;
-		
-		int arrNum = 0;
+		int arrNum = 0; // 자릿수
+		int arrSum = 0; // 자릿수 합
 		
 		switch (arrNum) {
 		case 1:
-			
+			answer = true;
 			break;
 		case 2:
-			
 			break;
 		case 3:
 			
