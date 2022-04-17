@@ -5,7 +5,7 @@ public class Solution {
 	// 하샤드 수는 x의 자릿수의 합이 x로 나누어 떨어지는 수 == 나머지가 0인 것
 	// x는 1이상 10000이하
 	// 자릿수는 1~5까지 나옴
-	// 1~9
+	// 1~9 : 전부 하샤드 수
 	// 10~99
 	// 100~999
 	// 1000~9999
@@ -15,14 +15,20 @@ public class Solution {
 
 	public boolean solution(int x) {
 		boolean answer = true;
-		int arrNum = 0; // 자릿수
+		int arrNum = x/10; // 자릿수
 		int arrSum = 0; // 자릿수 합
 		
+		
+		
 		switch (arrNum) {
-		case 1:
+		case 0:
 			answer = true;
 			break;
+		case 1:
+			
+			break;
 		case 2:
+			
 			break;
 		case 3:
 			
