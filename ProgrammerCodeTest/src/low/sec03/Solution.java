@@ -15,32 +15,16 @@ public class Solution {
 
 	public boolean solution(int x) {
 		boolean answer = true;
-		int arrNum = x/10; // 자릿수
-		int arrSum = 0; // 자릿수 합
+		int num = x;
+		int sum = 0;
 		
+		while(num != 0) {
+			sum += num%10;
+			num = num/10;
+		}
 		
-		
-		switch (arrNum) {
-		case 0:
-			answer = true;
-			break;
-		case 1:
-			
-			break;
-		case 2:
-			
-			break;
-		case 3:
-			
-			break;
-		case 4:
-			
-			break;
-		case 5:
-			
-			break;
-		default:
-			break;
+		if(x%sum != 0) {
+			answer = false;
 		}
 
 		return answer;
