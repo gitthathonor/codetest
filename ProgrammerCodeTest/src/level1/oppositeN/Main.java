@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Main {
 	public static void main(String[] args) {
 		Solution sol = new Solution();
-		long[] answer = sol.solution(9876543215L);
+		long[] answer = sol.solution(9976543215L);
 		System.out.println(Arrays.toString(answer));
 	}
 }
