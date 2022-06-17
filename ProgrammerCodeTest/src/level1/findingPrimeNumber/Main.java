@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Solution sol = new Solution();
-		int a = sol.solution(1000000);
+		int a = sol.solution(120);
 		System.out.println(a);
 	}
 
@@ -19,9 +19,22 @@ public class Main {
 // 소수인지 아닌지 확인하는 방법 : 약수의 갯수가 2개인지 아닌지 확인
 // 또는 그 이전의 소수들로 나누어 떨어지는지 아닌지 확인
 
+
+//확인된 방법으로는 3가지
+//1. 2~n까지의 수를 배열로 만들어서 다시 2~n까지 각각의 수를 나누어서 약수가 1과 본인인 수들을 계산 (but, 시간이 많이 걸린다)
+//2. 자연수 n이 소수이기 위한 필요 충분 조건은 n이 n의 제곱근보다 작은 어떤 소수로도 나눠지지 않는다. 수를 수로 나누어 떨어진다면,
+//그때의 몫은 반드시 그 수의 제곱근보다 작시 때문이다.
+//첫 번째 방법에서 범위를 n이 아닌 sqrt(n)으로 설정하면 된다.
+//3. 에라토스테네스의 체
+//2~n까지의 모든 수 나열
+//2는 소수, 2의 배수들은 소수가 아니므로 n까지의 자기 자신을 제외한 2의 배수를 모두 지운다.
+//3은 소수, 똑같이 3의 배수를 모두 지워준다.
+//n의 제곱근 전의 최대 소수까지 반복해준다.
+
+
 class Solution {
 	public int solution(int n) {
-		int answer = 0;
+		
 		
 		//소수들을 담을 배열을 만든다.
 		//List<Integer> list = new ArrayList<Integer>();
@@ -47,10 +60,37 @@ class Solution {
 //			
 //		}
 		
-		for(int i=2; i<=n; i++) {
-			
-		}
+		int answer = 0;
+        
+        int[] number = new int[n+1];
+        
+        //2부터 n까지의 수를 배열에 넣는다.
+        for(int i=2; i<=n; i++) {
+            number[i] = i;
+        }
+        
+        //2부터 시작해서 그의 배수들을 0으로 만든다.
+        //후에 0이면 넘어가고 아니면 그의 배수들을 다시 0으로 만든다.
+        for(int i=2; i<=n; i++) {
+            if(number[i]==0) continue;
+            
+            for(int j= 2*i; j<=n; j += i) {
+                number[j] = 0;
+            }
+        }
+        
+        //배열에서 0이 아닌 것들의 개수를 세준다.
+        for(int i=0; i<number.length; i++) {
+            if(number[i]!=0) {
+                answer++;
+            }
+        }
+        
+        return answer;
 		
-		return answer;
+		
+		
+		
+		
 	}
 }
