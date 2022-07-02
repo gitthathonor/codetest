@@ -5,33 +5,33 @@ import java.util.Arrays;
 public class Main {
 
 	public static void main(String[] args) {
-
-	}
+		Solution sol = new Solution();
+		String[] strings = {"sun", "bed", "car"};
+		String[] answer = sol.solution(strings, 1);
+		for(String a : answer) {
+			System.out.println(a);
+		}
+	}	
 
 }
 
 class Solution {
-	public String[] Solution(String[] strings, int n) {
-		String[] answer = {};
-		char[] charArr = new char[strings.length];
+	public String[] solution(String[] strings, int n) {
+		String[] answer = new String[strings.length];
 		
-		for(int i=0; i<strings.length; i++) {
-			charArr[i] = strings[i].charAt(n);
+		Arrays.sort(strings);
+		
+		for(int i = 0; i<strings.length; i++) {
+			strings[i] = strings[i].substring(n, n+1) + strings[i];
 		}
 		
-		Arrays.sort(charArr);
+		Arrays.sort(strings);
+		
+		for(int j = 0; j<strings.length; j++) {
+			answer[j] = strings[j].substring(1);
+		}
 		
 		return answer;
 	}
 	
-//	public boolean CompareString(String a,  String b, int n) {
-//		boolean action = true;
-//		action = Character.compare(a.charAt(n), b.charAt(n));
-//		
-//		if() {
-//			
-//		}
-//		
-//		return action;
-//	}
 }
